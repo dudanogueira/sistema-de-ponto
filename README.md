@@ -9,12 +9,19 @@ Controle de ponto/acesso por reconhecimento facial usando a câmera do laptop.
 ## Setup
 
 ```bash
-docker compose up -d          # Weaviate em localhost:8090 (gRPC 50061)
+docker compose up -d          # Weaviate em localhost:8080 (gRPC 50051)
 uv sync                       # Python 3.11 + deepface, tensorflow, opencv, weaviate-client
 ```
 
 Na primeira execução a DeepFace baixa os pesos do modelo (~95 MB) para `~/.deepface`, e o macOS
 pede permissão de câmera para o terminal (Ajustes do Sistema › Privacidade e Segurança › Câmera).
+
+Se as portas 8080/50051 já estiverem em uso, troque as duas pelas mesmas variáveis
+(valem para o `docker compose` e para o `ponto.py`):
+
+```bash
+export WEAVIATE_PORT=8090 WEAVIATE_GRPC_PORT=50061
+```
 
 ## Uso
 

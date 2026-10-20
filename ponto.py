@@ -26,8 +26,8 @@ import weaviate
 from weaviate.classes.config import Configure, DataType, Property, Tokenization, VectorDistances
 from weaviate.classes.query import Filter, MetadataQuery, Sort
 
-WEAVIATE_PORT = int(os.getenv("WEAVIATE_PORT", "8090"))
-WEAVIATE_GRPC_PORT = int(os.getenv("WEAVIATE_GRPC_PORT", "50061"))
+WEAVIATE_PORT = int(os.getenv("WEAVIATE_PORT", "8080"))
+WEAVIATE_GRPC_PORT = int(os.getenv("WEAVIATE_GRPC_PORT", "50051"))
 
 MODELO = "Facenet512"
 DETECTOR = "opencv"
