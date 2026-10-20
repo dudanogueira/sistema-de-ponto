@@ -1,0 +1,16 @@
+[project]
+name = "sistema-de-ponto"
+version = "0.1.0"
+description = "POC de controle de ponto com reconhecimento facial (DeepFace + Weaviate)"
+requires-python = ">=3.11,<3.13"
+dependencies = [
+    "deepface>=0.0.93",
+    "tf-keras",
+    # versão com GUI (cv2.imshow); a deepface puxa a "headless", que não abre janela
+    "opencv-contrib-python",
+    "weaviate-client>=4.16",
+]
+
+[tool.uv]
+# evita instalar a variante headless junto (ambas fornecem o módulo cv2)
+override-dependencies = ["opencv-contrib-python-headless; sys_platform == 'never'"]
